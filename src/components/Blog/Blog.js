@@ -5,68 +5,83 @@ import { COLORS, FONTSIZES, SPACING, WEIGHTS } from "../../constants";
 function Blog() {
   return (
     <Wrapper>
-      <BlogTitle>blolg</BlogTitle>
-      <YearWrapper>
-        <Year>2021</Year>
-        <PostsContainer>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-        </PostsContainer>
-      </YearWrapper>
+      <BlogWrapper>
+        <BlogTitle>blolg</BlogTitle>
 
-      <YearWrapper>
-        <Year>2020</Year>
-        <PostsContainer>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-        </PostsContainer>
-      </YearWrapper>
-      <YearWrapper>
-        <Year>2019</Year>
-        <PostsContainer>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-          <IndividualPostWrapper>
-            <PublishedDateWrapper>
-              <PublishedDate>June 1</PublishedDate>
-            </PublishedDateWrapper>
-          </IndividualPostWrapper>
-        </PostsContainer>
-      </YearWrapper>
+        <BlogList>
+          <YearWrapper>
+            <Year>2021</Year>
+            <PostsContainer>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+                <PostContentWrapper>
+                  <PostTopLineWrapper>
+                    <Title>Allo Arry</Title>
+                    <ReadStatus>Unread</ReadStatus>
+                  </PostTopLineWrapper>
+
+                  <Summary>
+                    A brief snippet of a line from a movie, whomst is bad
+                  </Summary>
+                </PostContentWrapper>
+              </IndividualPostWrapper>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+            </PostsContainer>
+          </YearWrapper>
+
+          <YearWrapper>
+            <Year>2020</Year>
+            <PostsContainer>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+            </PostsContainer>
+          </YearWrapper>
+          <YearWrapper>
+            <Year>2019</Year>
+            <PostsContainer>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+              <IndividualPostWrapper>
+                <PublishedDateWrapper>
+                  <PublishedDate>June 1</PublishedDate>
+                </PublishedDateWrapper>
+              </IndividualPostWrapper>
+            </PostsContainer>
+          </YearWrapper>
+        </BlogList>
+      </BlogWrapper>
     </Wrapper>
   );
 }
@@ -79,41 +94,58 @@ const Wrapper = styled.div`
   margin-right: auto;
 `;
 
+const BlogWrapper = styled.div`
+  position: relative;
+`;
+
 const BlogTitle = styled.header`
   font-size: ${FONTSIZES.pageHead};
+  position: sticky;
+  display: block;
+  height: 96px;
+  z-index: 1;
+  top: 0;
+  background-color: #fff;
+`;
+
+const BlogList = styled.div`
+  position: relative;
 `;
 
 const YearWrapper = styled.section`
-  position: relative;
+  padding: 8px 36px;
   &:last-of-type {
     margin-bottom: 100vh;
   }
-  padding: 8px 36px;
 `;
 
 const Year = styled.span`
-  display: inline-block;
+  display: block;
   position: sticky;
-  top: 0;
+  top: 96px;
   font-size: 24px;
   width: 100%;
   background-color: #fff;
   font-weight: 700;
+  margin-bottom: 24px;
 `;
 
 const PostsContainer = styled.div`
-  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
 
 const IndividualPostWrapper = styled.div`
   margin: 16px 8px;
+  display: flex;
 `;
 
 const PublishedDateWrapper = styled.div`
   display: inline-block;
   text-align: left;
-  border-right: solid 2px ${COLORS.gray[300]};
-  height: 48px;
+  border-right: solid 1px ${COLORS.gray[300]};
+  height: 64px;
 `;
 
 const PublishedDate = styled.span`
@@ -121,4 +153,32 @@ const PublishedDate = styled.span`
   margin-right: 8px;
 `;
 
-//todo: summary wrapper, summary, read status, title
+const PostContentWrapper = styled.div`
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+const PostTopLineWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+const Title = styled.span`
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: underline;
+`;
+
+const Summary = styled.span`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${COLORS.gray[700]};
+`;
+
+const ReadStatus = styled.span`
+  color: ${COLORS.primary};
+  font-size: 14px;
+`;
